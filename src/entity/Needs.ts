@@ -14,5 +14,4 @@ export class Needs {
 
     @Column()
     isactive: boolean;
-
 }
