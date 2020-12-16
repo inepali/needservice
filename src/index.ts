@@ -25,12 +25,16 @@ createConnection().then(async connection => {
         });
     });
 
-    // setup express app here
-    // ...
+    var port : any;
+    var server = app.listen(process.env.PORT || 3000, function () {
+        port = server.address().port;
+        console.log("App now running on port", port);
+    });
 
-    // start express server
-    app.listen(3000);
-
+    app.get("/", function (req, res) {
+        res.send(`Welcome to Needs API, running on port ${port}`);
+    });
+    
     console.log("Express server has started on port 3000. Open http://localhost:3000/needs to see results");
 
 }).catch(error => console.log(error));
